@@ -6,16 +6,10 @@ LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="green"
 
 LABEL version="0.1"
-LABEL repository="https://github.com/kitabisa/sonarqube-action"
-LABEL homepage="https://kitabisa.github.io"
-LABEL maintainer="dwisiswant0"
+LABEL repository="https://github.com/KhoaHoang01012003/sonarqube-actions"
+LABEL maintainer="KhoaHoang01012003"
 
-RUN npm config set unsafe-perm true && \
-  npm install --silent --save-dev -g typescript@3.5.2 && \
-  npm config set unsafe-perm false
-ENV NODE_PATH "/usr/lib/node_modules/"
-
-RUN apk add --no-cache ca-certificates jq
+RUN apt-get update && apt-get install -y jq curl
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
